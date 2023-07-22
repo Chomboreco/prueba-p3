@@ -1,0 +1,29 @@
+<div class="body">
+  <div class="login-container">
+    <form #loginForm="ngForm"  autocomplete="off" (ngSubmit)="loginSubmit()">
+      <div class="login">
+        <h1>Login</h1>
+        <h3><strong>Correo</strong></h3>
+        <div fxLayoutGap="1em" fxLayout="row" fxLayout.sm="column">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Correo</mat-label>
+            <input type="email" [(ngModel)]="loginModel.email" name="email" matInput placeholder="micorreo@b-more.tech" autofocus (focus)="true" required>
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          </mat-form-field>
+        </div>
+
+        <h3><strong>Contraseña</strong></h3>
+        <div fxLayoutGap="1em" fxLayout="row" fxLayout.sm="column">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Correo</mat-label>
+            <input type="password" [(ngModel)]="loginModel.password" name="password" matInput required>
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          </mat-form-field>
+        </div>
+        <div fxLayoutGap="1em" fxLayout="row" fxLayout.sm="column">
+          <button mat-raised-button color="primary" type="submit" >Iniciar sesión</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

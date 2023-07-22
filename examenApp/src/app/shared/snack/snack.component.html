@@ -1,0 +1,7 @@
+<span class="alignment ">
+  <span>{{editModel.text}} </span>
+  <mat-icon class="info" *ngIf="!editModel.type || editModel.type == 'i'">info</mat-icon>
+  <mat-icon class="ok" *ngIf="editModel.type == 'o'">check_circle</mat-icon>
+  <mat-icon class="warn" *ngIf="editModel.type == 'w'">warning</mat-icon>
+  <mat-icon class="error" *ngIf="editModel.type == 'e'">error</mat-icon>
+</span>

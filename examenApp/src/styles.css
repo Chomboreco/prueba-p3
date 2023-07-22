@@ -1,0 +1,108 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --pro-turquoise: #21b3bf;
+  --pro-nav-bk: #263544;
+  --pro-nav-submenu: #222d3b;
+  --pro-nav-select: #1d2531;
+  --pro-text: #333333;
+  --pro-text-gray: #b7c0cd;
+  --pro-bk-gray: #ededed;
+  --pro-bk-content: #f2f7fb;
+  --pro-busy-bk: #b7c0cd50;
+  --pro-bk-none: #ffffff00;
+  --pro-bk-row: #f7f7f7;
+  /* Alerts colors */
+  --pro-info: #b7c0cd;
+  --pro-ok: #3c9b00;
+  --pro-warn: #ffe100;
+  --pro-error: #ff0000;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Quicksand, "Quicksand", sans-serif;
+}
+
+/*
+ *
+*/
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  /* color: red; */
+  background: yellow;
+}
+
+::selection {
+  color: auto;
+  background: #c5d7d5;
+}
+
+.txt-right {
+  text-align: right !important;
+}
+
+.txt-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.info {
+  color: var(--pro-info);
+}
+
+.ok {
+  color: var(--pro-ok);
+}
+
+.warn {
+  color: var(--pro-warn);
+}
+
+.error {
+  color: var(--pro-error);
+}
+
+snack-bar-container {
+  background-color: var(--pro-nav-bk) !important;
+}
+
+/********************************
+ * GENERAL PROPERTIES
+ ********************************/
+.fx-sb {
+  display: flex;
+  justify-content: space-between;
+}

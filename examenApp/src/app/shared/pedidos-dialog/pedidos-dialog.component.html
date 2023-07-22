@@ -1,0 +1,94 @@
+<form #umaForm="ngForm" (ngSubmit)="umaSubmit()" autocomplete="off" fxLayout="column" fxLayoutAlign="left"
+  fxLayoutGap="1em" fxFlexFill>
+  <h2 mat-dialog-title>{{dialogTitle}}</h2>
+  <mat-dialog-content class="mat-typography">
+
+    <h3><strong>ID y Status</strong></h3>
+    <div fxLayoutGap="1em" fxLayout="row" fxLayout.sm="column">
+      <!-- ID -->
+      <mat-form-field appearance="fill">
+        <mat-label><b>ID</b></mat-label>
+        <input matInput type="number" [(ngModel)]="pedidoModel.id" name="id" placeholder="mín:1, máx:60" disabled>
+        <!-- [disabled]="mode == 1" -->
+      </mat-form-field>
+
+      <!-- STATUS -->
+      <!-- <mat-form-field appearance="fill">
+        <mat-label><b>Status</b></mat-label>
+        <input matInput type="text" [(ngModel)]="pedidoModel.status" name="status" placeholder="mín:1, máx:999"
+          required>
+      </mat-form-field> -->
+
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="pedidoModel.status" name="status" [disabled]="mode == 0">
+          <mat-option *ngFor="let status of statusPedido" [value]="status.value">
+            {{status.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <h3><strong>Fechas</strong></h3>
+    <div fxLayoutGap="1em" fxLayout="row" fxLayout.sm="column">
+      <!-- FECHA PEDIDO -->
+      <mat-form-field appearance="fill">
+        <mat-label><b>Fecha pedido</b></mat-label>
+        <input matInput [(ngModel)]="pedidoModel.fechaPedido" name="fechaPedido" [matDatepicker]="fechaPedido" [disabled]="mode == 0" required>
+        <mat-datepicker-toggle matSuffix [for]="fechaPedido"></mat-datepicker-toggle>
+        <mat-datepicker #fechaPedido></mat-datepicker>
+      </mat-form-field>
+
+      <!-- FECHA ENTREGA -->
+      <mat-form-field appearance="fill">
+        <mat-label><b>Fecha entrega</b></mat-label>
+        <input matInput [(ngModel)]="pedidoModel.fechaEntrega" name="fechaEntrega" [matDatepicker]="fechaEntrega" [disabled]="mode == 0"
+          required>
+        <mat-datepicker-toggle matSuffix [for]="fechaEntrega"></mat-datepicker-toggle>
+        <mat-datepicker #fechaEntrega></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <h3><strong>Datos cliente</strong></h3>
+    <div fxLayoutGap="1em" fxLayout="row" fxLayout.sm="column">
+      <!-- IP -->
+      <mat-form-field appearance="fill">
+        <mat-label><b>IP</b></mat-label>
+        <input matInput type="text" [(ngModel)]="pedidoModel.ip" name="ip" class="text-right" disabled>
+      </mat-form-field>
+
+      <!-- Cliente -->
+      <mat-form-field appearance="fill">
+        <mat-label>Cliente</mat-label>
+        <mat-select [(ngModel)]="pedidoModel.cliente" name="cliente" [disabled]="mode == 1">
+          <mat-option *ngFor="let cliente of clientes" [value]="cliente">
+            {{cliente.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+    <!-- Productos -->
+    <!-- <h3><strong>Productos</strong></h3>
+    <div fxLayoutGap="1em" fxLayout="row" fxLayout.sm="column">
+      <mat-form-field appearance="fill">
+        <mat-label><b>Productos</b></mat-label>
+        <input matInput type="text" [(ngModel)]="pedidoModel.productos" name="productos" class="text-right">
+      </mat-form-field>
+    </div> -->
+
+    <h3><strong>Vendedor</strong></h3>
+    <div fxLayoutGap="1em" fxLayout="row" fxLayout.sm="column">
+      <!-- Vendedor -->
+      <mat-form-field appearance="fill">
+        <mat-label><b>Vendedor</b></mat-label>
+        <input matInput type="text" value="{{pedidoModel.vendedor.nombre}}" class="text-right" disabled>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-stroked-button [mat-dialog-close]="false">Cancelar</button>
+    <button mat-stroked-button type="submit" [disabled]="umaForm.invalid">Guardar</button>
+    <button mat-stroked-button type="button" (click)="data()">Data</button>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,113 @@
+<app-sidenav-container>
+  <div content>
+    <h1>Pedidos</h1>
+    <div class="card">
+      <div class="card-header">
+        <div class="fx-sb">
+          <div>
+            <h4 style="font-weight: bold;">Lista de pedidos</h4>
+          </div>
+
+          <!-- MENÚ DE OPCIONES DE TABLA -->
+          <div>
+            <button mat-icon-button [matMenuTriggerFor]="menuTable">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #menuTable="matMenu">
+              <button mat-menu-item (click)="hideShowColumns()">
+                <mat-icon>visibility_off</mat-icon>
+                <span>Mostrar/Ocultar</span>
+              </button>
+              <button mat-menu-item (click)="pedidosGetData()">
+                <mat-icon>refresh</mat-icon>
+                <span>Actualizar</span>
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLA -->
+      <div class="card-content">
+        <div class="table-container">
+          <table mat-table [dataSource]="dataSource">
+            <!-- Id Column -->
+            <ng-container matColumnDef="id" *ngIf="columns[0].show">
+              <th mat-header-cell *matHeaderCellDef class="txt-center">{{columns[0].headerText}}</th>
+              <td mat-cell *matCellDef="let element" class="txt-center"> {{element.id}} {{setCurrent(element)}}
+              </td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="status" *ngIf="columns[1].show">
+              <th mat-header-cell *matHeaderCellDef class="txt-center">{{columns[1].headerText}}</th>
+              <td mat-cell *matCellDef="let element" class="txt-center"> {{element.status}} </td>
+            </ng-container>
+
+            <!-- Fecha Pedido Column -->
+            <ng-container matColumnDef="fechaPedido" *ngIf="columns[2].show">
+              <th mat-header-cell *matHeaderCellDef class="txt-center">{{columns[2].headerText}}</th>
+              <td mat-cell *matCellDef="let element" class="txt-center"> {{element.fechaPedido | date : 'dd/MM/yyyy'}}
+              </td>
+            </ng-container>
+
+            <!-- Fecha Entrega Column -->
+            <ng-container matColumnDef="fechaEntrega" *ngIf="columns[3].show">
+              <th mat-header-cell *matHeaderCellDef class="txt-center">{{columns[3].headerText}}</th>
+              <td mat-cell *matCellDef="let element" class="txt-center"> {{element.fechaEntrega | date : 'dd/MM/yyyy'}}
+              </td>
+            </ng-container>
+
+            <!-- IP Column -->
+            <ng-container matColumnDef="ip" *ngIf="columns[4].show">
+              <th mat-header-cell *matHeaderCellDef class="txt-center">{{columns[4].headerText}}</th>
+              <td mat-cell *matCellDef="let element" class="txt-center"> {{element.ip}} </td>
+            </ng-container>
+
+            <!-- Cliente Column -->
+            <ng-container matColumnDef="cliente" *ngIf="columns[5].show">
+              <th mat-header-cell *matHeaderCellDef class="txt-center">{{columns[5].headerText}}</th>
+              <td mat-cell *matCellDef="let element" class="txt-center"> {{element.cliente.nombre}} </td>
+            </ng-container>
+
+            <!-- Productos Column -->
+            <ng-container matColumnDef="productos" *ngIf="columns[6].show">
+              <th mat-header-cell *matHeaderCellDef class="txt-center">{{columns[6].headerText}}</th>
+              <td mat-cell *matCellDef="let element" class="txt-center"> {{element.productos.length}} </td>
+            </ng-container>
+
+            <!-- Vendedor Column -->
+            <ng-container matColumnDef="vendedor" *ngIf="columns[7].show">
+              <th mat-header-cell *matHeaderCellDef class="txt-center">{{columns[7].headerText}}</th>
+              <td mat-cell *matCellDef="let element" class="txt-center"> {{element.vendedor.nombre}} </td>
+            </ng-container>
+
+            <!-- Acciones Column -->
+            <ng-container matColumnDef="acciones" *ngIf="columns[8].show">
+              <th mat-header-cell *matHeaderCellDef class="txt-center">{{columns[8].headerText}}
+                <mat-icon style="cursor: pointer;" (click)="createPedido()">
+                  add_box</mat-icon>
+              </th>
+              <td mat-cell *matCellDef="let element" class="txt-center">
+                <!-- Editar -->
+                <mat-icon style="cursor: pointer;" (click)="agregarProductos(element)">edit
+                </mat-icon>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="9">No hay datos para mostrar</td>
+            </tr>
+          </table>
+        </div>
+        <mat-paginator [pageSize]="pageSize" aria-label="Select page of GitHub search results">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</app-sidenav-container>

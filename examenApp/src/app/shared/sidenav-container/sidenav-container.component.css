@@ -1,0 +1,115 @@
+.container {
+  padding: 1em;
+  height: 100%;
+  background-color: var(--pro-bk-content);
+  color: var(--pro-text);
+}
+
+.mat-sidenav {
+  width: 18em;
+  background-color: var(--pro-nav-bk);
+  /* background-image: linear-gradient(to bottom, #263544, #2c3d4d, #314655, #374e5e, #3d5767); */
+}
+
+/* mat-sidenav-container {
+  background-color: rgb(217, 217, 217);
+} */
+
+.item-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 12px;
+  /* position: relative; */
+}
+
+.toolbar-logo {
+  height: 60%;
+  /* padding: 10px; */
+  margin: 0 auto;
+  background-color: none;
+}
+
+.mat-toolbar-logo {
+  background-color: var(--pro-nav-bk);
+  box-shadow: 0 4px 4px -4px rgba(0, 0, 0, .2);
+  color: var(--pro-text);
+}
+
+.mat-list-item,
+.mat-toolbar {
+  color: var(--pro-text-gray);
+  font-size: 1.1em;
+  font-weight: 400;
+  border-left: 3px solid rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  /* overflow: hidden; */
+}
+
+.mat-nav-list .mat-list-item .mat-icon {
+  transform: scale(0.7);
+}
+
+.mat-nav-list {
+  padding: 0;
+  user-select: none;
+}
+
+.mat-toolbar-bar {
+  color: var(--pro-text);
+  background: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 4px 0 rgba(43, 43, 43, .2);
+  z-index: 10000;
+}
+
+.sub-menu {
+  background-color: var(--pro-nav-select);
+  color: white;
+  border-left: 3px solid var(--pro-turquoise);
+}
+
+.sub-menu:hover {
+  background-color: var(--pro-nav-select);
+}
+
+.sub-menu-list {
+  overflow: hidden;
+  background-color: var(--pro-nav-submenu);
+  font-size: 0.85em;
+  border-left: 3px solid var(--pro-turquoise);
+}
+
+.sub-menu-icon {
+  margin-left: auto;
+}
+
+.mat-list-item:hover {
+  color: white;
+}
+
+.sub-menu-list .mat-list-item:hover {
+  color: var(--pro-turquoise);
+  background-color: initial;
+}
+
+.main-content {
+  /* padding: 6em 1em 1em 1em; */
+  padding: 1em;
+  box-sizing: border-box;
+  /* min-height: 100%; */
+  height: auto;
+  /* background-color: var(--pro-bk-content); */
+  color: var(--pro-text);
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.profile-button {
+  /* color: var(--pro-text); */
+  background-color: var(--pro-bk-gray);
+  vertical-align: middle;
+}

@@ -1,0 +1,9 @@
+.buttons-alignment {
+  justify-content: space-evenly;
+}
+
+mat-icon {
+  width: 100%;
+  text-align: center;
+  font-size: xx-large;
+}

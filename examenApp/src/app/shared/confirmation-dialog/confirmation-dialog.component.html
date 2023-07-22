@@ -1,0 +1,15 @@
+<div mat-dialog-title>
+  <mat-icon class="info" *ngIf="!data.type || data.type == 'i'">info</mat-icon>
+  <mat-icon class="ok" *ngIf="data.type == 'o'">check_circle</mat-icon>
+  <mat-icon class="warn" *ngIf="data.type == 'w'">warning</mat-icon>
+  <mat-icon class="error" *ngIf="data.type == 'e'">error</mat-icon>
+  <h2 class="txt-center">{{data.title}}</h2>
+</div>
+
+<div mat-dialog-content>
+  {{data.text}}
+</div>
+<div mat-dialog-actions class="buttons-alignment">
+  <button mat-stroked-button [mat-dialog-close]="false">No</button>
+  <button mat-stroked-button cdkFocusInitial [mat-dialog-close]="true">Sí</button>
+</div>
